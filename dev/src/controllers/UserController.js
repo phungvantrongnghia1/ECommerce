@@ -20,6 +20,13 @@ let UserController = class UserController {
         console.log('payload :>> ', payload);
         return await request.interactor.userSignUpInteractor.execute(payload);
     }
+    async SignIn(request, response, payload) {
+        console.log('payload :>> ', payload);
+        const accessToken = await request.interactor.userSignInInteractor.execute(payload);
+        response.setHeader("Authrization", accessToken);
+        return "Login successs";
+        // Check session each other request
+    }
 };
 __decorate([
     routing_controllers_1.Post("/v1/user/signup"),
@@ -28,6 +35,13 @@ __decorate([
     __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "getListTodo", null);
+__decorate([
+    routing_controllers_1.Post("/v1/user/signin"),
+    __param(0, routing_controllers_1.Req()), __param(1, routing_controllers_1.Res()), __param(2, routing_controllers_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object, Object]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "SignIn", null);
 UserController = __decorate([
     routing_controllers_1.JsonController()
 ], UserController);

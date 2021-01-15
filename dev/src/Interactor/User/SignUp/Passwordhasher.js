@@ -14,6 +14,9 @@ class PasswordHasher {
         const hash = await bcrypt_1.default.hash(password, salt);
         return hash;
     }
+    async verify(hashPassWord, passWordUser) {
+        return await bcrypt_1.default.compare(hashPassWord, passWordUser);
+    }
 }
 exports.PasswordHasher = PasswordHasher;
 //# sourceMappingURL=Passwordhasher.js.map

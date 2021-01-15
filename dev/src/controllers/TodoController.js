@@ -17,7 +17,8 @@ require("reflect-metadata");
 const routing_controllers_1 = require("routing-controllers");
 let TodoController = class TodoController {
     getListTodo(request) {
-        return request.interactor.todoListInteractor.execute();
+        console.log('request.user :>> ', request.user);
+        return "alo ha"; //request.interactor.todoListInteractor.execute();
     }
 };
 __decorate([

@@ -7,4 +7,7 @@ export class PasswordHasher {
         const hash = await bcrypt.hash(password,salt);
         return hash;
     }
+    async verify (hashPassWord: string, passWordUser: string): Promise<boolean>{
+        return await bcrypt.compare(hashPassWord, passWordUser);
+    }
 }

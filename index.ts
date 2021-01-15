@@ -5,10 +5,12 @@ import { TodoController } from "./src/controllers/TodoController";
 import { UserController } from "./src/controllers/UserController";
 import {AppRequest, isAppRequest, middleware} from "./middleware";
 import {knex} from "./config/knex";
+import { bootstrapAuth } from "./src/bootstrapAuth";
 const app = express();
 
 dotenv.config();
 middleware(app, knex);
+bootstrapAuth(app);
 console.log('object :>> ', process.env.USER_NAME);
 // app.use((req,res,next) => {
 //     if(!isAppRequest(req)) return;

@@ -6,6 +6,7 @@ import {Get, JsonController, Req} from "routing-controllers";
 export class TodoController {
     @Get("/")
     getListTodo(@Req() request: AppRequest){
-        return request.interactor.todoListInteractor.execute();
+        console.log('request.user :>> ', request.user);
+        return "alo ha"; //request.interactor.todoListInteractor.execute();
     }
 }

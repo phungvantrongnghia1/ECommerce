@@ -10,6 +10,6 @@ export class UserSignUpInteractor {
         const userCreate = {...payload, password: passwordhadHash}
         const user = await new CreateUserAction(this.knex).execute(userCreate);
         console.log('passwordhadHash :>> ', passwordhadHash);
-        return "Sign up";
+        return user;
     }
 }
